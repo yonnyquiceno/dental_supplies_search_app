@@ -1,0 +1,48 @@
+<div class="container text-center">
+    <div class="row">
+      <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="búsqueda..." ng-model="query" ng-keypress="($event.charCode==13)? sendRequest(query) : return">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Categoría <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#" ng-click="setCat(''); sendRequest(query);">Todas las categorías</a></li>
+                        <li><a href="#" ng-click="setCat(1); sendRequest(query);">Amalgamas</a></li>
+                        <li><a href="#" ng-click="setCat(2); sendRequest(query);">Aparatos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="animate-switch-container" ng-switch="message_switch">
+                <h5 class="animate-switch" ng-switch-when="articles_finded"><strong> {{number_of_articles}} </strong> articulos encontrados</h5>
+                <h5 class="animate-switch" ng-switch-when="no_articles">no se encontraron artículos </h5>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="flex-container">
+                <div ng-repeat="product in products">
+                    <div class="prodcontainer">
+                        <a ng-href={{product.id}}> <img ng-src={{product.image}} class="prod-img" /></a>
+                        <p>
+                            nombre: {{product.name}}
+                        </p>
+                        <p>
+                            categoría: {{product.category.trans.es}}
+                        </p>
+                        <p>
+                            precio: {{product.price}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
