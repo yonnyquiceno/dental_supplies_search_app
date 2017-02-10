@@ -15,14 +15,6 @@ angular.module('myApp.view1', ['ngRoute'])
         $scope.cat = cat
     }
 
-    // $scope.setMinPrice = function(minprice) {
-    //     $scope.cat = minprice
-    // }
-    //
-    // $scope.setMaxPrice = function(maxprice) {
-    //     $scope.cat = maxprice
-    // }
-
     $scope.sendRequest = function(query = ' ') {
         $http.get('http://dz-suggestions-api.herokuapp.com/suggestions?thold=0.5&q=' + query + '&cat=' + ($scope.cat || '') + '&minprice=' + ($scope.minprice || '') + '&maxprice=' + ($scope.maxprice || ''))
             .then(
