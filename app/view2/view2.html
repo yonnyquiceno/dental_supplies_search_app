@@ -11,7 +11,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" role="menu">
                                     <div class="form-group">
                                         <label for="filter">Filter by</label>
-                                        <select class="form-control" ng-model="cat">
+                                        <select class="form-control" ng-model="cat" onclick="event.stopPropagation();">
                                             <option value="1">Amalgamas</option>
                                             <option value="2">Aparatos</option>
                                             <option value="">Todas las categorias</option>
@@ -29,19 +29,19 @@
                                 </div>
                             </div>
                         </form>
-                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                        <button type="submit" class="btn btn-default" ng-click="sendRequest(query)"><span class="glyphicon glyphicon-search"></span></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <br>
     <div class="row">
     <div class="col-md-12">
           <div class="animate-switch-container" ng-switch="message_switch">
               <h5 class="animate-switch" ng-switch-when="articles_finded"><strong> {{number_of_articles}} </strong> articulos encontrados</h5>
               <h5 class="animate-switch" ng-switch-when="no_articles">no se encontraron artículos </h5>
           </div>
-          <br>
           <br>
       </div>
     </div>
